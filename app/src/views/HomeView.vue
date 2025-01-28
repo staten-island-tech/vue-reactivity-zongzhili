@@ -1,15 +1,18 @@
 <template>
   <div>
     <h1>Fresh Pizza</h1>
-    <div v-for="pizza in pizzas">
-      <li>{{ pizza.name }}</li>
+    <div class="pizza-grid">
+      <div v-for="pizza in pizzas">
+        <li>{{ pizza.name }} - ${{ pizza.price }}</li>
+        <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-pizzas: [
+import { ref } from 'vue'
+const pizzas = ref([
   {
     name: 'Margherita',
     price: 8.99,
@@ -80,7 +83,26 @@ pizzas: [
     image:
       'https://www.healthyseasonalrecipes.com/wp-content/uploads/2019/12/greek-pizza-21-001.jpg',
   },
-]
+])
 </script>
 
-<style scoped></style>
+<style scoped>
+html,
+body,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.pizza-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-content: center;
+}
+.pizza-image {
+  width: 200px;
+}
+</style>

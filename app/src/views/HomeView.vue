@@ -4,12 +4,10 @@
     <div class="pizza-grid">
       <div v-for="pizza in pizzas" :key="pizza.name">
         <h2>
-          <b>
-            {{ pizza.name }}
-          </b>
+          {{ pizza.name }}
         </h2>
         <h3>${{ pizza.price }}</h3>
-        <button class="pizza-btn">ADD TO CART</button><br />
+        <button class="pizza-btn" @click="addCart">ADD TO CART</button><br />
         <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
       </div>
     </div>
@@ -18,9 +16,15 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { pizzas } from '@/assets/array.js'
+import { pizzas } from '@/assets/pizza.js'
+import { cart } from '@/assets/cart.js'
 
 const pizzasArray = reactive(pizzas)
+const cartArray = reactive(cart)
+
+function addCart() {
+  console.log('clicked')
+}
 </script>
 
 <style scoped>

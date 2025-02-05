@@ -2,13 +2,13 @@
   <div>
     <h1>Brick Oven Pizza</h1>
     <div class="pizza-grid">
-      <div v-for="pizza in pizzas" :key="pizza.name">
+      <div class="card" v-for="pizza in pizzas" :key="pizza.name">
+        <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
         <h2>
           {{ pizza.name }}
         </h2>
         <h3>${{ pizza.price }}</h3>
         <button class="pizza-btn" @click="addCart">ADD TO CART</button><br />
-        <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@ import { cart } from '@/assets/cart.js'
 const pizzasArray = reactive(pizzas)
 const cartArray = reactive(cart)
 
-function addCart() {
+function addCart(cartArray) {
   console.log('clicked')
 }
 </script>
@@ -45,9 +45,10 @@ body,
   gap: 10px;
 }
 .pizza-image {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 350px;
   object-fit: cover;
+  margin: 0 auto;
 }
 h1 {
   text-align: center;
@@ -66,11 +67,17 @@ h1 {
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
-  margin-bottom: 5px;
 }
 
 .pizza-btn:hover {
   background-color: #4f3a29;
   transform: translateY(-2px);
 }
+.card {
+  background-color: #d7773c;
+  border-radius: 5px;
+  width: 22%;
+  padding: 10px;
+}
+/*media queries*/
 </style>

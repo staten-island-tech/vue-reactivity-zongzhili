@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { pizzas } from '@/assets/pizza.js'
 import { cart } from '@/assets/cart.js'
 
@@ -41,8 +41,6 @@ body,
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  justify-content: center;
-  gap: 10px;
 }
 .pizza-image {
   width: 100%;
@@ -76,8 +74,9 @@ h1 {
 .card {
   background-color: #d7773c;
   border-radius: 5px;
-  width: 22%;
+  width: 26%;
   padding: 10px;
+  margin-bottom: 20px;
 }
 /*media queries*/
 </style>

@@ -2,29 +2,17 @@
   <div>
     <h1>Brick Oven Pizza</h1>
     <div class="pizza-grid">
-      <PizzaCard
-        v-for="pizza in pizzasArray"
-        :key="pizza.name"
-        :pizza="pizza"
-        @add-to-Cart="addCart"
-      />
+      <PizzaCard v-for="pizza in pizzasArray" :key="pizza.name" :pizza="pizza" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { ref } from 'vue'
 import { pizzas } from '@/assets/pizza.js'
-import { cart } from '@/assets/cart.js'
 import PizzaCard from '@/components/PizzaCard.vue'
 
-const pizzasArray = reactive(pizzas)
-const cartArray = reactive(cart)
-
-function addCart(pizza) {
-  console.log('Adding pizza to cart:', pizza)
-  cartArray.push(pizza)
-}
+const pizzasArray = ref(pizzas)
 </script>
 
 <style scoped>
@@ -34,7 +22,6 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  width: 80vh;
 }
 .pizza-grid {
   display: flex;

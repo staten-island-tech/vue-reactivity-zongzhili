@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <div class="card" v-for="pizza in pizzas" :key="pizza.name" :pizza="pizza">
-      <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
-      <h2>
-        {{ pizza.name }}
-      </h2>
-      <h3>${{ pizza.price }}</h3>
-      <button class="pizza-btn" @click="addCart">ADD TO CART</button><br />
-    </div>
+  <div class="card">
+    <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
+    <h2>
+      {{ pizza.name }}
+    </h2>
+    <h3>${{ pizza.price }}</h3>
+    <button class="pizza-btn" @click="addCart">ADD TO CART</button><br />
   </div>
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   pizza: Object,
 })
 </script>

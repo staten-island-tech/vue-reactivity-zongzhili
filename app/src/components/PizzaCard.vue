@@ -5,7 +5,7 @@
       {{ pizza.name }}
     </h2>
     <h3>${{ pizza.price }}</h3>
-    <button class="pizza-btn" @click="addCart">ADD TO CART</button><br />
+    <button class="pizza-btn" @click="addToCart">Add to Cart</button>
   </div>
 </template>
 
@@ -13,6 +13,12 @@
 const props = defineProps({
   pizza: Object,
 })
+
+const emit = defineEmits(['addToCart'])
+
+function addToCart() {
+  emit('addToCart', props.pizza)
+}
 </script>
 
 <style scoped>
@@ -27,6 +33,13 @@ h1 {
   font-size: 60px;
 }
 
+.card {
+  background-color: #d7773c;
+  border-radius: 5px;
+  width: 22%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
 .pizza-btn {
   background-color: #6c4f3d;
   color: white;
@@ -44,12 +57,5 @@ h1 {
 .pizza-btn:hover {
   background-color: #4f3a29;
   transform: translateY(-2px);
-}
-.card {
-  background-color: #d7773c;
-  border-radius: 5px;
-  width: 22%;
-  padding: 10px;
-  margin-bottom: 20px;
 }
 </style>

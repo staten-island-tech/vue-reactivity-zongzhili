@@ -18,7 +18,7 @@ const props = defineProps({
 <style scoped>
 .pizza-image {
   width: 100%;
-  height: 350px;
+  height: 500px;
   object-fit: cover;
   margin: 0 auto;
 }
@@ -48,7 +48,7 @@ h1 {
 .card {
   background-color: #d7773c;
   border-radius: 5px;
-  width: 26%;
+  width: 22%;
   padding: 10px;
   margin-bottom: 20px;
 }

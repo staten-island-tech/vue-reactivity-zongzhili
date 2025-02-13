@@ -27,6 +27,9 @@ const pizzasArray = reactive(pizzas)
 function addToCart(pizza) {
   cart.push(pizza)
   console.log('Added to cart:', pizza.name, pizza.price)
+  let total = 0
+  total += pizza.price
+  console.log(total)
 }
 </script>
 

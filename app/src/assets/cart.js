@@ -1,1 +1,2 @@
-export const cart = []
+import { ref } from 'vue'
+export const cart = ref([])

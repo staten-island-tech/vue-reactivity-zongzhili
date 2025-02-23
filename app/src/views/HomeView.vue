@@ -23,15 +23,16 @@ import Cart from '@/views/Cart.vue'
 import PizzaCard from '@/components/PizzaCard.vue'
 
 const pizzasArray = reactive(pizzas)
-let total = 0
+const total = ref(0)
 
 function addToCart(pizza) {
-  cart.value.push(pizza)
-  console.log('Added to cart:', pizza.name, pizza.price)
+  console.log('Adding to cart:', pizza.name)
 
-  total += pizza.price
-  total = Math.round(total * 100) / 100
-  console.log(total)
+  cart.value.push(pizza)
+  total.value += pizza.price
+  total.value = Math.round(total.value * 100) / 100
+
+  console.log('Updated total:', total.value)
 }
 </script>
 

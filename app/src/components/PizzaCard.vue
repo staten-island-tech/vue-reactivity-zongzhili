@@ -54,7 +54,6 @@ h1 {
   background-color: #6c4f3d;
   color: white;
   font-size: 16px;
-  font-weight: bold;
   padding: 10px 20px;
   border-radius: 25px;
   border: none;

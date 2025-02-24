@@ -55,7 +55,7 @@ export const pizzas = [
     image: '/chickenpesto.webp',
   },
   {
-    name: 'Greek',
+    name: 'Ladenia',
     price: 10.49,
     image: '/greek.jpg',
   },

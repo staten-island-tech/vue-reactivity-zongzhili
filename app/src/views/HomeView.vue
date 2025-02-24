@@ -1,5 +1,5 @@
 <template>
-  <div class="homeContainer">
+  <div class="container">
     <h1>Brick Oven Pizza</h1>
     <div class="content">
       <div class="pizza-grid">
@@ -72,5 +72,36 @@ h1 {
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   min-height: 1000px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  .pizza-grid {
+    width: 100%;
+  }
+  .cartContainer {
+    width: 100%;
+  }
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartContainer {
+    margin-top: 20px;
+  }
+  h2,
+  .pizza-btn {
+    font-size: 12px;
+  }
+  .card {
+    padding: 8px;
+  }
+  .pizza-image {
+    height: 200px;
+  }
 }
 </style>

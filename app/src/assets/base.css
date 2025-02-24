@@ -7,10 +7,6 @@ html, body, * {
 body{
   background-color: #f5e1c8;
 }
-
-@media screen and (max-width: 480px) {
-  .pizza {
-    width: 90%;
-    margin-bottom: 20px;
-  }
+p {
+  font-size: 17.5px;
 }

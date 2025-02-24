@@ -3,7 +3,7 @@
     <h1>Cart</h1>
     <h2>Total: ${{ total }}<br />Items:</h2>
     <div v-for="(pizza, index) in cart" :key="index" class="cart-item">
-      <img :src="pizza.image" alt="Pizza image" class="cart-image" />
+      <img :src="pizza.image" alt="" class="cart-image" />
       <p>{{ pizza.name }} Pizza- ${{ pizza.price }}</p>
       <button class="removebtn" @click="removeCart(index)">Remove</button>
     </div>
@@ -22,9 +22,6 @@ function removeCart(index) {
 </script>
 
 <style scoped>
-p {
-  font-size: 17px;
-}
 .cart-item {
   display: flex;
   align-items: center;
@@ -53,5 +50,10 @@ p {
 }
 .removebtn:hover {
   transform: scale(1.1);
+}
+@media (max-width: 1600px) {
+  .cart-item {
+    flex-direction: column;
+  }
 }
 </style>

@@ -10,7 +10,9 @@
           @addToCart="addToCart"
         />
       </div>
-      <Cart :cart="cart" :total="total" />
+      <div class="cartContainer">
+        <Cart :cart="cart" :total="total" @removeCart="removeCart" />
+      </div>
     </div>
   </div>
 </template>
@@ -26,27 +28,32 @@ const pizzasArray = reactive(pizzas)
 const total = ref(0)
 
 function addToCart(pizza) {
-  console.log('Adding to cart:', pizza.name)
-
   cart.value.push(pizza)
   total.value += pizza.price
   total.value = Math.round(total.value * 100) / 100
+}
 
-  console.log('Updated total:', total.value)
+function removeCart(index) {
+  if (index >= 0 && index < cart.value.length) {
+    const removedPizza = cart.value[index]
+    total.value -= removedPizza.price
+    total.value = Math.round(total.value * 100) / 100
+    cart.value.splice(index, 1)
+  }
 }
 </script>
 
 <style scoped>
-body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+h1 {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 10px;
 }
-.content-container {
+.content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
-  gap: 20px;
+  align-items: flex-start;
 }
 .pizza-grid {
   display: flex;
@@ -54,14 +61,16 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  width: 80%;
+}
+.cartContainer {
+  width: 20%;
+  margin-right: 20px;
 }
 .cart {
-  flex: 1;
   padding: 20px;
-  border: 1px solid #ddd;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 1000px;
 }
-
-/*media queries*/
 </style>

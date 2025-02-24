@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="pizza.image" alt="Pizza image" class="pizza-image" />
+    <img :src="pizza.image" alt="" class="pizza-image" />
     <h2>
       {{ pizza.name }}
     </h2>
@@ -24,7 +24,7 @@ function addToCart() {
 <style scoped>
 .pizza-image {
   width: 100%;
-  height: 500px;
+  height: 350px;
   object-fit: cover;
   margin: 0 auto;
 }
@@ -34,12 +34,22 @@ h1 {
 }
 
 .card {
-  background-color: #d7773c;
   border-radius: 5px;
-  width: 22%;
-  padding: 10px;
+  background-color: white;
+  width: 28%;
+  padding: 18px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 }
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .pizza-btn {
   background-color: #6c4f3d;
   color: white;
@@ -49,13 +59,10 @@ h1 {
   border-radius: 25px;
   border: none;
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .pizza-btn:hover {
   background-color: #4f3a29;
-  transform: translateY(-2px);
 }
 </style>
